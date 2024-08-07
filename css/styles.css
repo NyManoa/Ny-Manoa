@@ -213,7 +213,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #282c34;
+    background-color: #000618dc;
     color: #fff;
     position: fixed;
     width: 100%;
@@ -232,8 +232,8 @@ body {
 }
 #splash-screen img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     margin-right: 20px;
 }
 
