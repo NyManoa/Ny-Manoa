@@ -1,0 +1,678 @@
+/* CSS principal pour le corps et la barre de navigation */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9e9e9d0;
+    color: #032c36;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden; /* Hide scrollbars initially */
+}
+
+/* Styles pour la section du contenu */
+.content {
+    margin-left: 450px; /* Ajusté en fonction de la largeur de la barre de navigation */
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+    text-align: left;
+    position: relative; /* Assurer que les animations sont positionnées par rapport à ce conteneur */
+}
+
+/* Conteneur pour les animations dans la partie droite */
+.animations-container {
+    position: fixed; /* Fixer la position pour rester en place pendant le défilement */
+    top: 0;
+    right: 0;
+    width: 40vw; /* Ajuster en fonction de la taille souhaitée */
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Assurer que les animations ne bloquent pas les interactions */
+    z-index: 999; /* S'assurer que le conteneur est au-dessus du contenu */
+}
+
+/* Styles pour les formes animées */
+.animation {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.shape1, .shape2, .shape3, .shape4 {
+    background: linear-gradient(45deg, #ff6b6b, #f7e14e);
+    animation: move 15s infinite linear;
+}
+
+.shape1 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #f7e14e);
+    animation: move1 10s infinite linear;
+}
+
+.shape2 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 70%;
+    background: linear-gradient(45deg, #48c9b0, #16a085);
+    animation: move2 12s infinite linear;
+}
+
+.shape3 {
+    width: 80px;
+    height: 80px;
+    top: 80%;
+    left: 50%;
+    background: linear-gradient(45deg, #f39c12, #e74c3c);
+    animation: move3 14s infinite linear;
+}
+
+.shape4 {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 60%;
+    background: linear-gradient(45deg, #9b59b6, #3498db);
+    animation: move4 16s infinite linear;
+}
+
+/* Styles pour les lignes courbées */
+.curved-line1, .curved-line2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.curved-line1 {
+    top: 30%;
+    left: 30%;
+    border-color: rgba(255, 105, 180, 0.7);
+    border-style: dashed;
+    animation: line1 12s infinite linear;
+}
+
+.curved-line2 {
+    top: 50%;
+    left: 50%;
+    border-color: rgba(100, 149, 237, 0.7);
+    border-style: dotted;
+    animation: line2 14s infinite linear;
+}
+
+/* Animations */
+@keyframes move1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(100px, 100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes move2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-100px, 100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes move3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move4 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animations pour les lignes courbées */
+@keyframes line1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes line2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* Réduire l'opacité des animations en mode portrait */
+@media (max-width: 1000px) {
+    .shape1, .shape2, .shape3, .shape4, .curved-line1, .curved-line2 {
+        opacity: 0.1; /* Réduire l'opacité en mode portrait */
+    }
+}
+
+
+
+.animated-text {
+    display: inline-block;
+}
+
+.animated-text span {
+    opacity: 0;
+    animation: typing 0.05s forwards;
+    animation-delay: calc(var(--char-index) * 0.01s);
+}
+
+@keyframes typing {
+    to {
+        opacity: 1;
+    }
+}
+
+
+ /* Initial splash screen */
+ #splash-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+}
+.splash-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px; /* Adjust spacing from bottom as needed */
+    gap: 20px; /* Space between countdown and button */
+}
+#splash-screen img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+#splash-screen .intro-text {
+    font-size: 24px;
+    font-weight: bold;
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #ff6b6b;
+    }
+    25% {
+        color: #48c9b0;
+    }
+    50% {
+        color: #f39c12;
+    }
+    75% {
+        color: #9b59b6;
+    }
+    100% {
+        color: #ff6b6b;
+    }
+}
+
+#see-more-button {
+    background: transparent;
+    border: none;
+    color: #ffffff; /* Text color */
+    font-size: 1.2em;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(38, 155, 190, 0.5);
+    animation: bounce 1s infinite;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between text and icon */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+#see-more-button .arrow-icon {
+    width: 20px; /* Adjust size as needed */
+    height: auto;
+}
+.arrow {
+    font-size: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+#countdown-timer {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+/* Initially hidden */
+.navbar, .content {
+    visibility: hidden;
+    opacity: 0;
+     transition: opacity 1s, visibility 1s;
+}
+
+.navbar {
+    display: flex; /* Ensure navbar layout */
+}
+
+.content {
+    display: block; /* Ensure content layout */
+}
+
+/* Show elements after splash screen */
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 420px;
+    background: rgba(230, 230, 230, 0.705);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 2px 0 4px rgba(14, 13, 13, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Espacer le contenu et le bouton de mode */
+    z-index: 1000; /* Assurer qu'il reste au-dessus du contenu */
+    overflow: hidden; /* Masquer la barre de défilement */
+}
+
+.navbar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1; /* Permet au contenu de prendre l'espace restant */
+}
+
+.navbar img.profile-pic {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.text-info {
+    text-align: center;
+}
+
+.navbar h1, .navbar h2 {
+    margin: 5px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+}
+
+.navbar li {
+    margin: 2px 0; /* Espacement réduit entre les éléments */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alignement à gauche */
+    padding: 10px 20px;
+    transition: color 0.3s, transform 0.3s;
+    width: 100%;
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #007BFF;
+    transform: scale(1.1);
+}
+
+.navbar a img {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
+.title{
+    font-weight: lighter;
+    font-size:larger;
+}
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: auto; /* Place le bouton en bas */
+}
+
+.mode-switch label {
+    font-size: 14px;
+    color: #032c36;
+}
+
+.mode-switch input[type="checkbox"] {
+    appearance: none;
+    width: 50px;
+    height: 24px;
+    background: #007BFF;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.mode-switch input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.mode-switch input[type="checkbox"]:checked {
+    background: #333;
+}
+
+.mode-switch input[type="checkbox"]:checked::before {
+    transform: translateX(26px);
+}
+
+.content {
+    margin-left: 450px; /* Ajusté en fonction de la largeur de la barre de navigation */
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+    text-align: left;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section hr {
+    border: 1px solid #007BFF;
+    margin: 10px 1px;
+    width: 20%;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10%;
+    background-color: #ffffff00;
+    border: 2px solid transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    border-color: #007bff00;
+}
+
+.skill img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    filter: grayscale(100%); /* Applique le filtre niveau de gris par défaut */
+    transition: filter 0.8s; /* Ajoute une transition pour le changement de filtre */
+}
+
+.skill:hover img {
+    filter: none; /* Enlève le filtre niveau de gris lorsque survolé */
+}
+
+.skill p {
+    margin: 0 0 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.progress span {
+    width: 7px; /* Réduisez la taille des cercles de progression */
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid #fff; /* Couleur par défaut pour les bordures des cercles */
+    transition: background-color 1s, border-color 1s;
+}
+
+.progress span.filled {
+    background-color: transparent; /* Couleur transparente par défaut */
+    border-color: #007BFF; /* Couleur des bordures des cercles remplis par défaut */
+}
+
+.skill:hover .progress span.filled {
+    background-color: #007BFF; /* Couleur des cercles remplis lorsque survolés */
+    border-color: #007BFF; /* Couleur des bordures des cercles remplis lorsque survolés */
+}
+
+.skill:hover .progress span {
+    border-color: #007BFF; /* Couleur des bordures de tous les cercles lorsqu'ils sont survolés */
+}
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* Styles pour le mode sombre */
+body.dark-mode .social-links a img {
+    filter: brightness(0) invert(1); /* Change les logos en blanc */
+}
+
+
+.foot {
+    text-align: center;
+}
+.espace br {
+    content: "";
+    display: block;
+}
+@media (max-width: 768px) {
+    .navbar {
+        width: 250px;
+        padding: 10px;
+    }
+
+    .navbar img.profile-pic {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .navbar h1, .navbar h2 {
+        font-size: 16px;
+    }
+
+    .navbar ul {
+        margin: 10px 0 0 0;
+    }
+
+    .navbar li {
+        margin: 5px 0;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .content {
+        margin-left: 270px;
+        padding: 50px;
+    }
+    .espace br {
+        content: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: fixed; /* Changer la position à statique pour mobile */
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Masquer la barre de défilement */
+    }
+
+    .navbar img.profile-pic {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .navbar h1, .navbar h2 {
+        font-size: 14px;
+    }
+
+    .navbar ul {
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+        width: auto;
+    }
+
+    .navbar li {
+        margin: 0 5px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .mode-switch {
+        margin-top: 0; /* Remonter le bouton en haut */
+        order: -1; /* Place le switch en haut sur petits écrans */
+    }
+
+    .social-links a {
+        margin: 0 5px;
+    }
+
+    .social-links a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 10px;
+    }
+    .skill {
+        width: 20%;
+    }
+}

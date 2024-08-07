@@ -1,0 +1,20 @@
+body.dark-mode {
+    background-color: #000618dc;
+    color: #f1f1f1;
+}
+
+.navbar.dark-mode {
+    background: rgba(0, 0, 0, 0.534);
+    color: #f1f1f1;
+}
+
+.navbar a.dark-mode {
+    color: #111111b9;
+}
+
+.progress .filled.dark-mode {
+    background: #ececec;
+}
+.progress span{
+    border: 1px solid #636363 ;
+}
