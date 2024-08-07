@@ -336,6 +336,7 @@ body {
     width: 420px;
     background: rgba(230, 230, 230, 0.705);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     padding: 20px;
     box-shadow: 2px 0 4px rgba(14, 13, 13, 0.1);
     display: flex;
