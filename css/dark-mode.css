@@ -6,6 +6,8 @@ body.dark-mode {
 .navbar.dark-mode {
     background: rgba(0, 0, 0, 0.534);
     color: #f1f1f1;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
 }
 
 .navbar a.dark-mode {
