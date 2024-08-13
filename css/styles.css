@@ -617,7 +617,7 @@ body.dark-mode .social-links a img {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     .navbar {
         width: 100%;
         height: auto;
