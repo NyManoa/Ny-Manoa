@@ -332,7 +332,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 120vh;
     width: 420px;
     background: rgba(230, 230, 230, 0.705);
     backdrop-filter: blur(10px);
